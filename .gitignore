@@ -1,0 +1,14 @@
+# Specific to development environment
+.idea/
+.vs/
+.vscode/
+.atom/
+
+
+# Remove apple metadata
+**/.DS_Store
+
+
+# Specific to project
+**/__pycache__
+magellan/db.sqlite3
