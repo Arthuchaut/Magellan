@@ -18,9 +18,16 @@ from django.urls import path
 from django.views.generic import TemplateView
 from rest_framework_jwt.views import obtain_jwt_token
 
+from django.conf.urls import url, include
+from rest_framework.routers import DefaultRouter
+from ntp import views as ntp
+
+router = DefaultRouter()
+router.register(r'ntp/servers', ntp.ServersViewSet)
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html')),
     path('admin/', admin.site.urls),
+    path(r'api/', include(router.urls)),
     path('api/auth/get-token', obtain_jwt_token)
 ]
