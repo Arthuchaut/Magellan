@@ -17,13 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
 from rest_framework_jwt.views import obtain_jwt_token
-
-from django.conf.urls import url, include
+from django.conf.urls import include
 from rest_framework.routers import DefaultRouter
-from ntp import views as ntp
+import ntp.views
+import samba.views
 
 router = DefaultRouter()
-router.register(r'ntp/servers', ntp.ServersViewSet)
+router.register(r'ntp/servers', ntp.views.ServersViewSet)
+router.register(r'ntp/restrictions', ntp.views.RestrictionsViewSet)
+router.register(r'samba/configuration', samba.views.ConfigurationViewSet)
+router.register(r'samba/shares', samba.views.ShareViewSet)
+
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html')),
