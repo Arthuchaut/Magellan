@@ -1,0 +1,12 @@
+# Specific to development environment
+.idea/
+.vs/
+.vscode/
+.atom/
+
+
+# Remove apple metadata and Python cache
+**/.DS_Store
+**/__pycache__
+**/node_modules
+containers_data
