@@ -14,5 +14,7 @@ containers_data/
 
 
 # Specific to project
-**/__pycache__
-magellan/db.sqlite3
+node_modules/
+*.log
+*.bak
+config.js
