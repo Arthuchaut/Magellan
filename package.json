@@ -4,6 +4,7 @@
   "description": "Project Magellan (_temporary name_) is made to make self-hosting more easier and accessible for anybody by purposing alternatives solutions to thoses GAFAM companies.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
