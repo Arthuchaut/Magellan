@@ -1,3 +1,5 @@
+'use strict';
+
 const winston = require('winston'),
 	  moment  = require('moment'),
 	  fs      = require('fs'),

@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Magellan: Project Magellan is made to make self-hosting more easier and accessible for anybody by purposing alternatives solutions to thoses GAFAM companies.
  * Authors: Enowaves team <dev[at]enowaves[dot]space>
