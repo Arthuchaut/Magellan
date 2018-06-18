@@ -1,0 +1,62 @@
+/**
+ * Config file of Magellan main application
+ * Version of the config file: 0.1.0
+ */
+
+var config = {
+    /**
+     * Contain all informations about the webserver.
+     * The default configuration listen every IP address of the container or the server (manual installation) and allow all privates sub-networks.
+     */
+    webserver: {
+        bind_ip: "0.0.0.0",
+        bind_port: 6700,
+        allow_hosts: [
+        "10.0.0.0/8",
+        "172.16.0.0/12",
+        "192.168.0.0/16"
+        ],
+        deny_hosts: []
+    },
+
+    /**
+     * Contain the configuration for the database in different environment.
+     */
+    database: {
+        development: {
+            host: "db",
+            port:  5432,
+            username: "magellan",
+            password: "magellan",
+            database: "magellan",
+            dialect: "pg"
+        },
+        test: {
+            host: "db",
+            port:  5432,
+            username: "magellan",
+            password: "magellan",
+            database: "magellan",
+            dialect: "pg"
+        },
+            production: {
+            host: "db",
+            port:  5432,
+            username: "magellan",
+            password: "magellan",
+            database: "magellan",
+            dialect: "pg"
+        }
+    },
+
+    /**
+     * Contain the configuration for communicate with the broker and other containers
+     */
+    broker: {
+        host: "broker",
+        port: 5672
+    }
+}
+
+
+module.exports = config;
