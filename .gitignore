@@ -17,4 +17,5 @@ containers_data/
 node_modules/
 *.log
 *.bak
-config.js
+config/*.js
+

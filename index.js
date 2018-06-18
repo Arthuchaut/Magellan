@@ -7,23 +7,14 @@
 // Import dependencies
 const express    = require('express'),
       bodyParser = require('body-parser'),
-      logger     = require('./core/logger');
-
-var config;
+      logger     = require('./core/logger')();
 
 
-console.log(require("path").resolve(__dirname + '/../logs/do.txt'));
-
-logger.info("saluuuut");
-logger.error("doooooo")
-
-// // Try to open config file
-// try {
-//     config = require('./config/config.js');
-// } catch(e) { throw console.log("nope: " + e); }
+// Try to open config file
+var config = require('./core/config');
 
 
-// var app = express();
+var app = express();
 
 // app.listen(8090, () => {
 //     console.log("leg");
