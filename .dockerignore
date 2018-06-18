@@ -7,6 +7,12 @@
 
 # Remove apple metadata and Python cache
 **/.DS_Store
-**/__pycache__
-**/node_modules
+node_modules/
+logs/
 containers_data
+
+
+# Specific to project
+node_modules/
+*.log
+*.bak
