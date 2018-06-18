@@ -7,10 +7,10 @@
  */
 
 // Import dependencies
-const express    = require('express'),
-      bodyParser = require('body-parser'),
-      path       = require('path'),
-      logger     = require('./core/logger')();
+const express        = require('express'),
+      bodyParser     = require('body-parser'),
+      path           = require('path'),
+      logger         = require('./core/logger')();
 
 
 // Try to open config file
@@ -23,12 +23,14 @@ var app = express();
 app.use(bodyParser.json());
 app.use('/static', express.static(path.resolve(__dirname + '/frontend/dist/assets/')));
 
+// Import modules
+require('./core/module_importer')(app);
 
 // Import router file and module importer
 require('./core/router')(app);
 //require('./core/module_importer')(app);
 
 
-app.listen(HTTP_BIND, HTTP_PORT, (err) => {
+app.listen(HTTP_PORT, HTTP_BIND, (err) => {
     console.log("leg");
 })
