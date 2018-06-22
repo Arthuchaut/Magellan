@@ -5,7 +5,7 @@
 .atom/
 
 
-# Remove apple metadata and Python cache
+# Remove apple metadata
 **/.DS_Store
 node_modules/
 logs/
@@ -16,3 +16,6 @@ containers_data
 node_modules/
 *.log
 *.bak
+tests-tmp/
+coverage/
+.nyc_output/

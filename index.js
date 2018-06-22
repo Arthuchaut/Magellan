@@ -26,11 +26,9 @@ app.use('/static', express.static(path.resolve(__dirname + '/frontend/dist/asset
 // Import modules
 require('./core/module_importer')(app);
 
-// Import router file and module importer
+// Import core router file
 require('./core/router')(app);
-//require('./core/module_importer')(app);
 
 
-app.listen(HTTP_PORT, HTTP_BIND, (err) => {
-    console.log("leg");
-})
+// Start Web server
+app.listen(HTTP_PORT, HTTP_BIND, () => logger.info(`Magellan webserver as been started on http://${HTTP_BIND}:${HTTP_PORT}.`));
