@@ -3,6 +3,7 @@
 const winston = require('winston'),
 	  moment  = require('moment'),
 	  fs      = require('fs'),
+	  mkdirp  = require('mkdirp'),
 	  path    = require('path');
 
 
@@ -12,7 +13,7 @@ const logger  = winston.createLogger({
 	format: winston.format.combine(
 		winston.format.colorize(),
 		winston.format.timestamp(),
-		winston.format.printf(info => {
+		winston.format.printf((info) => {
 			return `[${info.timestamp}][${info.level}] ${info.message}`;
 		})
 	),
@@ -25,11 +26,17 @@ const logger  = winston.createLogger({
 
 
 module.exports = () => {
+	var logsPath;
+
+	if(global.test_env) logsPath = path.resolve(__dirname + '/../tests-tmp/logs'); // Change the path for units tests
+	else logsPath = path.resolve(__dirname + '/../logs'); // Store logs path
+
+	
 	// Check if the logs folder exists
-	if(fs.existsSync(path.resolve(__dirname + '/../logs')) == false) {
-		fs.mkdir(path.resolve(__dirname + '/..') + '/logs', err => {
-			if(err != null && err.code != 'EEXIST') {
-				console.log(err, path.resolve(__dirname + '/../'));
+	if(fs.existsSync(logsPath) == false) {
+		mkdirp(logsPath, err => {
+			if(err != null) {
+				console.log(err)
 				console.error('Unable to create logs folder. Please check if you have the permissions for this action.');
 				process.exit(1);
 			}
